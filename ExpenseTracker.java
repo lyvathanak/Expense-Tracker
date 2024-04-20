@@ -70,5 +70,6 @@ public class ExpenseTracker {
 
     // Make the frame visible
     frame.setVisible(true);
+    // update the
   }
 }
