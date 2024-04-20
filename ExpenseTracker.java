@@ -15,29 +15,38 @@ public class ExpenseTracker {
     // Create the main window
     JFrame frame = new JFrame("Expense Tracker");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(400, 200);
+    frame.setSize(500, 300); // Adjust size as needed
 
-    // Create a panel to hold UI elements
-    JPanel panel = new JPanel(new FlowLayout());
+    // Create a panel to hold UI elements with adjusted gaps
+    JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
 
     // Labels and Text Fields for user input
-    JLabel dateLabel = new JLabel("Date (YYYY-MM-DD): ");
-    JTextField dateField = new JTextField(10);
+    JLabel dayLabel = new JLabel("Day: ");
+    JTextField dayField = new JTextField(3);
+    JLabel monthLabel = new JLabel("Month: ");
+    JTextField monthField = new JTextField(3);
+    JLabel yearLabel = new JLabel("Year: ");
+    JTextField yearField = new JTextField(4);
     JLabel descriptionLabel = new JLabel("Description: ");
-    JTextField descriptionField = new JTextField(10);
+    JTextField descriptionField = new JTextField(20);
     JLabel amountLabel = new JLabel("Amount: ");
     JTextField amountField = new JTextField(10);
 
     // Combo Box for expense categories (modify as needed)
-    String[] categories = {"Groceries", "Bills", "Entertainment", "Other", "Food"};
+    String[] categories = {"Groceries", "Bills", "Entertainment", "Transportation", "Utilities", "Other"};
     JComboBox<String> categoryComboBox = new JComboBox<>(categories);
 
-    // Button to add expense
+    // Button to add expense with fixed width
     JButton addExpenseButton = new JButton("Add Expense");
+    addExpenseButton.setPreferredSize(new java.awt.Dimension(120, 30));
 
-    // Add components to the panel
-    panel.add(dateLabel);
-    panel.add(dateField);
+    // Add components to the panel with specific order
+    panel.add(dayLabel);
+    panel.add(dayField);
+    panel.add(monthLabel);
+    panel.add(monthField);
+    panel.add(yearLabel);
+    panel.add(yearField);
     panel.add(descriptionLabel);
     panel.add(descriptionField);
     panel.add(amountLabel);
@@ -52,17 +61,21 @@ public class ExpenseTracker {
     addExpenseButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        String date = dateField.getText();
+        String day = dayField.getText();
+        String month = monthField.getText();
+        String year = yearField.getText();
         String description = descriptionField.getText();
         String amountStr = amountField.getText();
         double amount = Double.parseDouble(amountStr);
         String category = (String) categoryComboBox.getSelectedItem();
 
         // Logic to store expense data (replace with your implementation)
-        System.out.println("Expense Added: " + date + ", " + description + ", " + amount + ", " + category);
+        System.out.println("Expense Added: " + day + "/" + month + "/" + year + ", " + description + ", " + amount + ", " + category);
 
         // Clear input fields for new entries
-        dateField.setText("");
+        dayField.setText("");
+        monthField.setText("");
+        yearField.setText("");
         descriptionField.setText("");
         amountField.setText("");
       }
@@ -70,7 +83,5 @@ public class ExpenseTracker {
 
     // Make the frame visible
     frame.setVisible(true);
-    // update the
-    //Updated by menghour
   }
 }
