@@ -29,7 +29,7 @@ public class ExpenseTracker {
     JTextField amountField = new JTextField(10);
 
     // Combo Box for expense categories (modify as needed)
-    String[] categories = {"Groceries", "Bills", "Entertainment", "Other"};
+    String[] categories = {"Groceries", "Bills", "Entertainment", "Other", "Food"};
     JComboBox<String> categoryComboBox = new JComboBox<>(categories);
 
     // Button to add expense
@@ -71,5 +71,6 @@ public class ExpenseTracker {
     // Make the frame visible
     frame.setVisible(true);
     // update the
+    //Updated by menghour
   }
 }
