@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,10 +16,15 @@ public class ExpenseTracker {
     // Create the main window
     JFrame frame = new JFrame("Expense Tracker");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(400, 200);
+    frame.setSize(600, 400); // Adjust size as needed
 
-    // Create a panel to hold UI elements
-    JPanel panel = new JPanel(new FlowLayout());
+    // Create a panel for the header
+    JPanel headerPanel = new JPanel(new FlowLayout());
+    JLabel titleLabel = new JLabel("Expense Tracker"); // You can add an icon here
+    headerPanel.add(titleLabel);
+
+    // Create a panel to hold UI elements for user input
+    JPanel inputPanel = new JPanel(new FlowLayout());
 
     // Labels and Text Fields for user input
     JLabel dateLabel = new JLabel("Date (YYYY-MM-DD): ");
@@ -35,43 +41,28 @@ public class ExpenseTracker {
     // Button to add expense
     JButton addExpenseButton = new JButton("Add Expense");
 
-    // Add components to the panel
-    panel.add(dateLabel);
-    panel.add(dateField);
-    panel.add(descriptionLabel);
-    panel.add(descriptionField);
-    panel.add(amountLabel);
-    panel.add(amountField);
-    panel.add(categoryComboBox);
-    panel.add(addExpenseButton);
+    // Add components to the input panel
+    inputPanel.add(dateLabel);
+    inputPanel.add(dateField);
+    inputPanel.add(descriptionLabel);
+    inputPanel.add(descriptionField);
+    inputPanel.add(amountLabel);
+    inputPanel.add(amountField);
+    inputPanel.add(categoryComboBox);
+    inputPanel.add(addExpenseButton);
 
-    // Add the panel to the frame
-    frame.add(panel);
+    // Main content panel (can be extended to include expense list or summary)
+    JPanel contentPanel = new JPanel(); // Modify layout as needed
 
-    // Action listener for the "Add Expense" button (currently just prints to console)
-    addExpenseButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        String date = dateField.getText();
-        String description = descriptionField.getText();
-        String amountStr = amountField.getText();
-        double amount = Double.parseDouble(amountStr);
-        String category = (String) categoryComboBox.getSelectedItem();
+    // Add action listener for the "Add Expense" button (similar to previous code)
 
-        // Logic to store expense data (replace with your implementation)
-        System.out.println("Expense Added: " + date + ", " + description + ", " + amount + ", " + category);
-
-        // Clear input fields for new entries
-        dateField.setText("");
-        descriptionField.setText("");
-        amountField.setText("");
-      }
-    });
+    // Add panels to the frame with layout manager
+    frame.setLayout(new BorderLayout());
+    frame.add(headerPanel, BorderLayout.NORTH);
+    frame.add(inputPanel, BorderLayout.CENTER);
+    frame.add(contentPanel, BorderLayout.SOUTH); // Adjust position for content
 
     // Make the frame visible
     frame.setVisible(true);
-    // update the
-
-    // This line is updated by Menghour
   }
 }
