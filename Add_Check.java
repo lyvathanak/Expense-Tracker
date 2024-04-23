@@ -221,8 +221,6 @@ public class Add_Check {
             g.fillArc(50, 50, width - 100, height - 100, startAngle, arcAngle);
             startAngle += arcAngle;
         }
-
-       
        
     }
 
