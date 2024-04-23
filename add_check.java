@@ -24,12 +24,12 @@ public class Add_Check {
         JPanel buttonPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(10, 10, 10, 10); // Padding around the buttons
+        gbc.insets = new Insets(10, 10, 10, 10); // Padding around the buttons.
     
         JButton addExpenseButton = new JButton("Add Expense");
-        addExpenseButton.setPreferredSize(new Dimension(200, 50)); // Set button size
-        addExpenseButton.setFocusPainted(false); // Remove border around the text
-        addExpenseButton.setFont(new Font("Arial", Font.BOLD, 14)); // Set font
+        addExpenseButton.setPreferredSize(new Dimension(200, 50)); // Set button size.
+        addExpenseButton.setFocusPainted(false); // Remove border around the text.
+        addExpenseButton.setFont(new Font("Arial", Font.BOLD, 14)); // Set font.
         addExpenseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 showAddExpenseDialog();
@@ -37,9 +37,9 @@ public class Add_Check {
         });
     
         JButton checkExpenseButton = new JButton("Check Expenses");
-        checkExpenseButton.setPreferredSize(new Dimension(200, 50)); // Set button size
-        checkExpenseButton.setFocusPainted(false); // Remove border around the text
-        checkExpenseButton.setFont(new Font("Arial", Font.BOLD, 14)); // Set font
+        checkExpenseButton.setPreferredSize(new Dimension(200, 50)); // Set button size.
+        checkExpenseButton.setFocusPainted(false); // Remove border around the text.
+        checkExpenseButton.setFont(new Font("Arial", Font.BOLD, 14)); // Set font.
         checkExpenseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 showExpenses();
@@ -53,10 +53,10 @@ public class Add_Check {
         gbc.gridy = 1;
         buttonPanel.add(checkExpenseButton, gbc);
     
-        mainFrame.add(buttonPanel, BorderLayout.CENTER); // Center the button panel
+        mainFrame.add(buttonPanel, BorderLayout.CENTER); // Center the button panel.
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setLocationRelativeTo(null); // Center the frame on the screen
+        mainFrame.setLocationRelativeTo(null); // Center the frame on the screen.
     }
     
 
@@ -79,7 +79,7 @@ public class Add_Check {
                     Date date = new SimpleDateFormat("dd/mm/yyyy").parse(dateField.getText());
                     expenses.add(new Expense(amount, category, date));
                     saveExpenses();
-                    // mainFrame.dispose(); Remove this line to keep the frame open after saving
+                    // mainFrame.dispose(); Remove this line to keep the frame open after saving.
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please try again.");
                 }
@@ -92,7 +92,7 @@ public class Add_Check {
         panel.add(categoryComboBox);
         panel.add(dateLabel);
         panel.add(dateField);
-        panel.add(new JLabel()); // Empty label for spacing
+        panel.add(new JLabel()); // Empty label for spacing.
         panel.add(saveButton);
     
         JOptionPane.showMessageDialog(mainFrame, panel, "Add Expense", JOptionPane.PLAIN_MESSAGE);
