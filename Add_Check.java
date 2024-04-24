@@ -64,15 +64,17 @@ public class Add_Check {
                 
             }
         });
-
+       
         gbc.gridx = 0;
         gbc.gridy = 0;
         buttonPanel.add(addExpenseButton, gbc);
 
         gbc.gridy = 1;
         buttonPanel.add(checkExpenseButton, gbc);
+
         gbc.gridy = 2;
         buttonPanel.add(display_pieButton, gbc);
+
 
         mainFrame.add(buttonPanel, BorderLayout.CENTER); // Center the button panel
         mainFrame.setVisible(true);
@@ -201,7 +203,7 @@ public class Add_Check {
         legend_red.setFocusPainted(false); 
 
         JButton legend_magenta = new JButton("Vacation");
-        legend_magenta.setBounds(470,500,120,30);
+        legend_magenta.setBounds(470,500,100,30);
         legend_magenta.setBackground(Color.red);
         legend_magenta.setFocusPainted(false); 
         legend_magenta.setForeground(Color.white);
@@ -213,6 +215,7 @@ public class Add_Check {
         pieFrame.add(legend_orange);
         pieFrame.add(legend_magenta);
         pieFrame.setSize(600, 600);
+        pieFrame.setResizable(false);
         pieFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Create a JPanel for drawing the pie chart
@@ -258,7 +261,6 @@ public class Add_Check {
         }
        
     }
-
     private static class Expense {
         private double amount;
         private String category;
