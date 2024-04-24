@@ -66,7 +66,10 @@ public class Add_Check {
         JLabel amountLabel = new JLabel("Amount:");
         JTextField amountField = new JTextField();
         JLabel categoryLabel = new JLabel("Category:");
-        String[] categories = {"Housing", "Shopping", "Entertainment", "Rent", "Vacation"};
+        String[] categories = {"Education", "Entertainment", "Food and Dining", "Gifts and Donations",
+                               "Health and Fitness", "Housing", "Insurance", "Miscellaneous",
+                               "Personal Care", "Rent", "Shopping", "Transportation", 
+                               "Utilities", "Vacation"};
         JComboBox<String> categoryComboBox = new JComboBox<>(categories);
         JLabel dateLabel = new JLabel("Date (dd/mm/yyyy):");
         JTextField dateField = new JTextField();
@@ -76,7 +79,7 @@ public class Add_Check {
                 try {
                     double amount = Double.parseDouble(amountField.getText());
                     String category = (String) categoryComboBox.getSelectedItem();
-                    Date date = new SimpleDateFormat("dd/mm/yyyy").parse(dateField.getText());
+                    Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateField.getText());
                     expenses.add(new Expense(amount, category, date));
                     saveExpenses();
                     // mainFrame.dispose(); Remove this line to keep the frame open after saving.
@@ -97,6 +100,8 @@ public class Add_Check {
     
         JOptionPane.showMessageDialog(mainFrame, panel, "Add Expense", JOptionPane.PLAIN_MESSAGE);
     }
+    
+
     
 
     private void showExpenses() {
