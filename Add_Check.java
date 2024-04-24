@@ -177,6 +177,41 @@ public class Add_Check {
 
         // Create and configure a new JFrame for displaying the pie chart
         JFrame pieFrame = new JFrame("Expense Distribution Pie Chart");
+
+       
+        JButton legend_green = new JButton("Shopping");
+        legend_green.setBounds(10,500,100,30);
+        legend_green.setBackground(Color.GREEN);
+        legend_green.setFocusPainted(false); 
+
+        JButton legend_orange = new JButton("Housing");
+        legend_orange .setBounds(120,500,100,30);
+        legend_orange .setBackground(Color.orange);
+        legend_orange .setFocusPainted(false); 
+
+        JButton legend_blue = new JButton("Entertainment");
+        legend_blue.setBounds(230,500,120,30);
+        legend_blue.setBackground(Color.blue);
+        legend_blue.setFocusPainted(false); 
+        legend_blue.setForeground(Color.white);
+        
+        JButton legend_red = new JButton("Rent");
+        legend_red.setBounds(360,500,100,30);
+        legend_red.setBackground(Color.magenta);
+        legend_red.setFocusPainted(false); 
+
+        JButton legend_magenta = new JButton("Vacation");
+        legend_magenta.setBounds(470,500,120,30);
+        legend_magenta.setBackground(Color.red);
+        legend_magenta.setFocusPainted(false); 
+        legend_magenta.setForeground(Color.white);
+        
+
+        pieFrame.add(legend_blue);
+        pieFrame.add(legend_green);
+        pieFrame.add(legend_red);
+        pieFrame.add(legend_orange);
+        pieFrame.add(legend_magenta);
         pieFrame.setSize(600, 600);
         pieFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -218,7 +253,7 @@ public class Add_Check {
             int arcAngle = (int) round((expense / totalExpenses) * 360);
             String category = entry.getKey();
             g.setColor(categoryColors.get(category));
-            g.fillArc(50, 50, width - 100, height - 100, startAngle, arcAngle);
+            g.fillArc(50, 50, width - 150, height - 150, startAngle, arcAngle);
             startAngle += arcAngle;
         }
        
