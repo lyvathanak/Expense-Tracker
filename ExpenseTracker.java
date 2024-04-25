@@ -88,6 +88,15 @@
         }
       });
 
+    // Action listener for the "Generate Report" button
+    generateReportButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        // Logic to generate report
+        System.out.println("Report Generated!");
+      }
+    });
+
       // Make the frame visible
       frame.setVisible(true);
     }
