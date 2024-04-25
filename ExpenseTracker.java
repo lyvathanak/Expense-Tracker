@@ -33,12 +33,16 @@ public class ExpenseTracker {
     JTextField amountField = new JTextField(10);
 
     // Combo Box for expense categories (modify as needed)
-    String[] categories = {"Groceries", "Bills", "Entertainment", "Transportation", "Utilities", "Other"};
+    String[] categories = { "Groceries", "Bills", "Entertainment", "Transportation", "Utilities", "Other" };
     JComboBox<String> categoryComboBox = new JComboBox<>(categories);
 
     // Button to add expense with fixed width
     JButton addExpenseButton = new JButton("Add Expense");
     addExpenseButton.setPreferredSize(new java.awt.Dimension(120, 30));
+
+    // Button to generate report
+    JButton generateReportButton = new JButton("Generate Report");
+    generateReportButton.setPreferredSize(new java.awt.Dimension(120, 30));
 
     // Add components to the panel with specific order
     panel.add(dayLabel);
@@ -57,7 +61,8 @@ public class ExpenseTracker {
     // Add the panel to the frame
     frame.add(panel);
 
-    // Action listener for the "Add Expense" button (currently just prints to console)
+    // Action listener for the "Add Expense" button (currently just prints to
+    // console)
     addExpenseButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -70,7 +75,8 @@ public class ExpenseTracker {
         String category = (String) categoryComboBox.getSelectedItem();
 
         // Logic to store expense data (replace with your implementation)
-        System.out.println("Expense Added: " + day + "/" + month + "/" + year + ", " + description + ", " + amount + ", " + category);
+        System.out.println(
+            "Expense Added: " + day + "/" + month + "/" + year + ", " + description + ", " + amount + ", " + category);
 
         // Clear input fields for new entries
         dayField.setText("");
