@@ -38,7 +38,6 @@ public class ExpenseTracker {
         descriptionField = new JTextField();
         JLabel amountLabel = new JLabel("Amount:");
         amountField = new JTextField();
-        JLabel cartegoriesLabel = new JLabel("Categories: ");
 
 
         inputPanel.add(dayLabel);
@@ -55,6 +54,9 @@ public class ExpenseTracker {
         // Combo Box for expense categories (modify as needed)
         String[] categories = {"Groceries", "Bills", "Entertainment", "Transportation", "Utilities", "Other"};
         JComboBox<String> categoryComboBox = new JComboBox<>(categories);
+
+        // Set JComboBox width to match JTextField components
+        categoryComboBox.setPreferredSize(dayField.getPreferredSize());
 
         // JLabel for Categories
         JLabel categoriesLabel = new JLabel("Categories:");
