@@ -38,6 +38,8 @@ public class ExpenseTracker {
         descriptionField = new JTextField();
         JLabel amountLabel = new JLabel("Amount:");
         amountField = new JTextField();
+        JLabel cartegoriesLabel = new JLabel("Categories: ");
+
 
         inputPanel.add(dayLabel);
         inputPanel.add(dayField);
@@ -54,11 +56,16 @@ public class ExpenseTracker {
         String[] categories = {"Groceries", "Bills", "Entertainment", "Transportation", "Utilities", "Other"};
         JComboBox<String> categoryComboBox = new JComboBox<>(categories);
 
+        // JLabel for Categories
+        JLabel categoriesLabel = new JLabel("Categories:");
+
         // Button panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
         // Button to add expense
         JButton addExpenseButton = new JButton("Add Expense");
         addExpenseButton.setPreferredSize(new Dimension(120, 30));
+
         // Button to generate report
         JButton generateReportButton = new JButton("Generate Report");
         generateReportButton.setPreferredSize(new Dimension(120, 30));
@@ -72,9 +79,12 @@ public class ExpenseTracker {
 
         // Add components to the panel with specific order
         panel.add(inputPanel, BorderLayout.NORTH);
+        // Add the JLabel "Categories" next to the JComboBox
+        panel.add(categoriesLabel, BorderLayout.WEST);
         panel.add(categoryComboBox, BorderLayout.CENTER);
         panel.add(buttonPanel, BorderLayout.SOUTH);
         panel.add(scrollPane, BorderLayout.EAST);
+
 
         // Add the panel to the frame
         frame.add(panel);
