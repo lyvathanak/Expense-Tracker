@@ -29,15 +29,15 @@ public class ExpenseTracker {
 
         // Labels and Text Fields for user input
         JLabel dayLabel = new JLabel("Day:");
-        JTextField dayField = new JTextField();
+        dayField = new JTextField();
         JLabel monthLabel = new JLabel("Month:");
-        JTextField monthField = new JTextField();
+        monthField = new JTextField();
         JLabel yearLabel = new JLabel("Year:");
-        JTextField yearField = new JTextField();
+        yearField = new JTextField();
         JLabel descriptionLabel = new JLabel("Description:");
-        JTextField descriptionField = new JTextField();
+        descriptionField = new JTextField();
         JLabel amountLabel = new JLabel("Amount:");
-        JTextField amountField = new JTextField();
+        amountField = new JTextField();
 
         inputPanel.add(dayLabel);
         inputPanel.add(dayField);
@@ -128,7 +128,14 @@ public class ExpenseTracker {
                     reportBuilder.append(entry.getKey()).append(": $").append(entry.getValue()).append("\n");
                 }
 
-                reportTextArea.setText(reportBuilder.toString());
+                // Create a new frame to display the report
+                JFrame reportFrame = new JFrame("Expense Report");
+                JTextArea reportTextArea = new JTextArea(reportBuilder.toString());
+                reportTextArea.setEditable(false); // Make the text area non-editable
+                JScrollPane scrollPane = new JScrollPane(reportTextArea);
+                reportFrame.add(scrollPane);
+                reportFrame.setSize(400, 300); // Adjust size as needed
+                reportFrame.setVisible(true);
             }
         });
 
